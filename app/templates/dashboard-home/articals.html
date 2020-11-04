@@ -1,0 +1,77 @@
+{% extends "layout-dash.html" %}
+{% block body%}
+<div class="app-content content">
+    {% with messages = get_flashed_messages() %}
+      {%for mess in messages%}
+            {% if mess == 'تم تعديل المقال بنجاح' %}
+            <div class="alert alert-success">
+            {{ mess }}
+            </div>
+            {%elif mess == 'تم حذف المقال بنجاح'%}
+                <div class="alert alert-success">
+                {{ mess }}
+                </div>
+            {% endif %}
+      {%endfor%}
+    {% endwith %}
+     <!-- Active Orders -->
+ <div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h4 class="card-title">جميع المقالات</h4>
+                <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                <div class="heading-elements">
+                </div>
+            </div>
+            <div class="card-content">
+                <div class="table-responsive">
+                    <table class="table table-de mb-0">
+                        <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Date</th>
+                            <th>name</th>
+                            <th>body</th>
+                            <th>image</th>
+                            <th>created_by</th>
+                            <th>category</th>
+                            <th>Opthinos</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                            {%for post in posts%}
+                        <tr>
+                            <td>{{post.id}}</td>
+                            <td class="success">{{post.created}}</td>
+                            <td>{{post.title[0:20]}}</td>
+                            <td>{{post.body[0:80]}}</td>
+                            <td><img style="width: 30%;" src="{{url_for('static', filename='images/upload/news/')}}{{post.img}}" alt=""></td>
+                            <td>{%for auth in author%}
+                                    {% if post.user_id == auth.id %}
+                                        {{auth.username}}
+                                    {%endif%}
+                                {%endfor%}
+                            </td>
+                            <td>{%for cate in categories%}
+                                    {% if post.cate_id == cate.id %}
+                                        {{cate.name}}
+                                    {%endif%}
+                                {%endfor%}
+                            </td>
+                            <td>
+                                <a href="/delete-artical/{{post.id}}" class="btn btn-sm round btn-outline-danger">Delete</a>
+                                <a href="/edit-artical/{{post.id}}" class="btn btn-sm round btn-outline-success">Edit</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Active Orders -->
+</div>
+{% endblock %}

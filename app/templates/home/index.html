@@ -1,0 +1,304 @@
+{% extends "layout_home.html"%}
+
+{% block body%}
+<div class="container-fluid paddding mb-5">
+    <div class="row mx-0">
+        <div class="col-md-6 col-12 paddding animate-box" data-animate-effect="fadeIn">
+            <div class="fh5co_suceefh5co_height"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts[0].img}}" alt="img"/>
+                <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                <div class="fh5co_suceefh5co_height_position_absolute_font">
+                    <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{posts[0].created}}
+                    </a></div>
+                    <div class=""><a href="/single/{{posts[0].id}}" class="fh5co_good_font"> {{posts[0].title}} </a></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts[1].img}}" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{posts[1].created}} </a></div>
+                            <div class=""><a href="/single/{{posts[1].id}}" class="fh5co_good_font_2"> {{posts[1].title}} </a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts[2].img}}" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{posts[2].created}} </a></div>
+                            <div class=""><a href="/single/{{posts[2].id}}" class="fh5co_good_font_2"> {{posts[2].title}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts[3].img}}" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{posts[3].created}} </a></div>
+                            <div class=""><a href="/single/{{posts[3].id}}" class="fh5co_good_font_2"> {{posts[3].title}}</a></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
+                    <div class="fh5co_suceefh5co_height_2"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts[4].img}}" alt="img"/>
+                        <div class="fh5co_suceefh5co_height_position_absolute"></div>
+                        <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+                            <div class=""><a href="#" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{posts[4].created}} </a></div>
+                            <div class=""><a href="/single/{{posts[4].id}}" class="fh5co_good_font_2"> {{posts[4].title}} </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-3">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
+        </div>
+        <div class="owl-carousel owl-theme js" id="slider1">
+            {% for post_trend in posts_trending%}
+            <div class="item px-2">
+                <div class="fh5co_latest_trading_img_position_relative">
+                    <div class="fh5co_latest_trading_img"><img src="{{url_for('static', filename='images/upload/news/')}}{{post_trend.img}}" alt=""
+                                                           class="fh5co_img_special_relative"/></div>
+                    <div class="fh5co_latest_trading_img_position_absolute"></div>
+                    <div class="fh5co_latest_trading_img_position_absolute_1">
+                        <a href="/single/{{post_trend.id}}" class="text-white"> {{post_trend.title}}</a>
+                        <div class="fh5co_latest_trading_date_and_name_color"> {{post_trend.created}}</div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+<div class="container-fluid pb-4 pt-5">
+    <div class="container animate-box">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+        </div>
+        <div class="owl-carousel owl-theme" id="slider2">
+            {%for post_news in posts_news%}
+            <div class="item px-2">
+                <div class="fh5co_hover_news_img">
+                    <div class="fh5co_news_img"><img src="{{url_for('static', filename='images/upload/news/')}}{{post_news.img}}" alt=""/></div>
+                    <div>
+                        <a href="/single/{{post_news.id}}" class="d-block fh5co_small_post_heading"><span class="">{{post_news.title}}</span></a>
+                        <div class="c_g"><i class="fa fa-clock-o"></i> {{post_news.created}}</div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+<div class="container-fluid fh5co_video_news_bg pb-4">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom pt-5 pb-2 mb-4  text-white">Video News</div>
+        </div>
+        <div>
+            <div class="owl-carousel owl-theme" id="slider3">
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video" width="100%" height="200"
+                                        src="https://www.youtube.com/embed/IFtE610wMY4"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide" id="play-video">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="#" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                            <span class="">The top 10 videos on YouTube </span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> Sep 9,2020</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_2" width="100%" height="200"
+                                        src="https://www.youtube.com/embed/DPTXtsIKkDM"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_2" id="play-video_2">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="#" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                            <span class="">The top 10 YouTube videos this month</span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> Sep 9,2020</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_3" width="100%" height="200"
+                                        src="https://www.youtube.com/embed/0lwEAL7gU1M"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_3" id="play-video_3">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="#" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                            <span class="">The top 10 </span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> Sep 9,2020</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="item px-2">
+                    <div class="fh5co_hover_news_img">
+                        <div class="fh5co_hover_news_img_video_tag_position_relative">
+                            <div class="fh5co_news_img">
+                                <iframe id="video_4" width="100%" height="200"
+                                        src="https://www.youtube.com/embed/WSyDG6ULKbU"
+                                        frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="fh5co_hover_news_img_video_tag_position_absolute_1 fh5co_hide_4" id="play-video_4">
+                                <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button_1">
+                                    <div class="fh5co_hover_news_img_video_tag_position_absolute_1_play_button">
+                                        <span><i class="fa fa-play"></i></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <a href="#" class="d-block fh5co_small_post_heading fh5co_small_post_heading_1">
+                                <span class="">The top 10 </span></a>
+                            <div class="c_g"><i class="fa fa-clock-o"></i> Sep 9,2020</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">News</div>
+                </div>
+                {%for news in all_news.items%}
+                <div class="row pb-4">
+                    <div class="col-md-5">
+                        <div class="fh5co_hover_news_img">
+                            <div class="fh5co_news_img"><img src="{{url_for('static', filename='images/upload/news/')}}{{news.img}}" alt=""/></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="col-md-7 animate-box">
+                        <a href="/single/{{news.id}}" class="fh5co_magna py-2"> {{news.title}} </a> <br>
+                        <a href="/single/{{news.id}}" class="fh5co_mini_time py-3"> {{news.created}} </a>
+                        <div class="fh5co_consectetur">{{news.body[0:120]}}
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+                    <a href="#" class="fh5co_tagg">Business</a>
+                    <a href="#" class="fh5co_tagg">Technology</a>
+                    <a href="#" class="fh5co_tagg">Sport</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                    <a href="#" class="fh5co_tagg">Photography</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Education</a>
+                    <a href="#" class="fh5co_tagg">Social</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                </div>
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[0].img}}" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> {{posts_trending[0].title}}</div>
+                        <div class="most_fh5co_treding_font_123">{{posts_trending[0].created}}</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[1].img}}" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font">{{posts_trending[1].title}}</div>
+                        <div class="most_fh5co_treding_font_123">{{posts_trending[1].created}}</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center">
+                        <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[2].img}}" alt="img" class="fh5co_most_trading"/>
+                    </div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font"> {{posts_trending[2].title}}</div>
+                        <div class="most_fh5co_treding_font_123"> {{posts_trending[2].created}}</div>
+                    </div>
+                </div>
+                <div class="row pb-3">
+                    <div class="col-5 align-self-center"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[3].img}}" alt="img"
+                                                              class="fh5co_most_trading"/></div>
+                    <div class="col-7 paddding">
+                        <div class="most_fh5co_treding_font">{{posts_trending[3].title}}</div>
+                        <div class="most_fh5co_treding_font_123"> {{posts_trending[3].created}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mx-0 animate-box" data-animate-effect="fadeInUp">
+            <div class="col-12 text-center pb-4 pt-4">
+                {% for page_num in all_news.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+                    {% if page_num %}
+                    {% if posts.page == page_num %}
+                        <a class="btn_pagging" href="{{ url_for('home.home_page', page=page_num) }}">{{ page_num }}</a>
+                    {% else %}
+                        <a class="btn_pagging" href="{{ url_for('home.home_page', page=page_num) }}">{{ page_num }}</a>
+                    {% endif %}
+                    {% else %}
+                    ...
+                    {% endif %}
+                {% endfor %}
+             </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

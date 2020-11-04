@@ -1,0 +1,44 @@
+{% extends "layout-dash.html" %}
+{% block body%}
+<div class="container">
+    <div class="category">
+        <h1 class="text-center">إضافة قائمة جديدة</h1>
+        <div class="card text-center">
+            {% with messages = get_flashed_messages() %}
+            {% if messages[0] == 'تم إضافة القائمة بنجاح' %}
+              <div class="alert alert-success">
+                {{ messages[0] }}
+              </div>
+              {% elif messages[0] == 'يوجد هذه القائمة من قبل' %}
+                <div class="alert alert-danger">
+                    {{ messages[0] }}
+                </div>
+            {% endif %}
+          {% endwith %}
+            <form action="{{url_for('dash.add_category')}}" method="POST">
+                <div class="form-group text-center">
+                    {{form.csrf_token}}
+                    <div class="form-group">
+                        {{form.name.label(style='display:block;font-size:2rem;')}}
+                        {{form.name(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{form.submit(class='btn btn-primary')}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .category{
+    margin: 45px 0;
+    padding: 15px 0;
+    }
+    .category .card {
+        padding: 20px;
+    }
+</style>
+{%endblock%}

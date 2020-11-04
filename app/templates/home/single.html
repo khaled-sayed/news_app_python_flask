@@ -1,0 +1,105 @@
+{% extends "layout_home.html"%}
+
+{% block body%}
+<body class="single">
+<div id="fh5co-title-box" style="background-image: url({{url_for('static', filename='images/upload/news/')}}{{post.img}}); background-position: 50% 90.5px;" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="page-title">
+        <img src="{{url_for('static', filename='images/upload/news/')}}{{post.img}}" alt="Free HTML5 by FreeHTMl5.co">
+        <span>{{post.created}}</span>
+        <h2>{{post.title}}</h2>
+    </div>
+</div>
+<div id="fh5co-single-content" class="container-fluid pb-4 pt-4 paddding">
+    <div class="container paddding">
+        <div class="row mx-0">
+            <div class="col-md-8 animate-box" data-animate-effect="fadeInLeft">
+                <p>
+                    {{post.body}}
+                </p>
+            </div>
+            <div class="col-md-3 animate-box" data-animate-effect="fadeInRight">
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Tags</div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="fh5co_tags_all">
+                    <a href="#" class="fh5co_tagg">Business</a>
+                    <a href="#" class="fh5co_tagg">Technology</a>
+                    <a href="#" class="fh5co_tagg">Sport</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                    <a href="#" class="fh5co_tagg">Photography</a>
+                    <a href="#" class="fh5co_tagg">Lifestyle</a>
+                    <a href="#" class="fh5co_tagg">Art</a>
+                    <a href="#" class="fh5co_tagg">Education</a>
+                    <a href="#" class="fh5co_tagg">Social</a>
+                    <a href="#" class="fh5co_tagg">Three</a>
+                </div>
+                <div>
+                    <div class="fh5co_heading fh5co_heading_border_bottom pt-3 py-2 mb-4">Most Popular</div>
+                </div>
+                <div class="row pb-3">
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[0].img}}" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"> {{posts_trending[0].title}}</div>
+                            <div class="most_fh5co_treding_font_123">{{posts_trending[0].created}}</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[1].img}}" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font">{{posts_trending[1].title}}</div>
+                            <div class="most_fh5co_treding_font_123">{{posts_trending[1].created}}</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center">
+                            <img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[2].img}}" alt="img" class="fh5co_most_trading"/>
+                        </div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font"> {{posts_trending[2].title}}</div>
+                            <div class="most_fh5co_treding_font_123"> {{posts_trending[2].created}}</div>
+                        </div>
+                    </div>
+                    <div class="row pb-3">
+                        <div class="col-5 align-self-center"><img src="{{url_for('static', filename='images/upload/news/')}}{{posts_trending[3].img}}" alt="img"
+                                                                  class="fh5co_most_trading"/></div>
+                        <div class="col-7 paddding">
+                            <div class="most_fh5co_treding_font">{{posts_trending[3].title}}</div>
+                            <div class="most_fh5co_treding_font_123"> {{posts_trending[3].created}}</div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid pt-3">
+    <div class="container animate-box" data-animate-effect="fadeIn">
+        <div>
+            <div class="fh5co_heading fh5co_heading_border_bottom py-2 mb-4">Trending</div>
+        </div>
+        <div class="owl-carousel owl-theme js" id="slider1">
+            {% for post_trend in posts_trending%}
+            <div class="item px-2">
+                <div class="fh5co_latest_trading_img_position_relative">
+                    <div class="fh5co_latest_trading_img"><img src="{{url_for('static', filename='images/upload/news/')}}{{post_trend.img}}" alt=""
+                                                           class="fh5co_img_special_relative"/></div>
+                    <div class="fh5co_latest_trading_img_position_absolute"></div>
+                    <div class="fh5co_latest_trading_img_position_absolute_1">
+                        <a href="single.html" class="text-white"> {{post_trend.title}}</a>
+                        <div class="fh5co_latest_trading_date_and_name_color"> {{post_trend.created}}</div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+{%endblock%}

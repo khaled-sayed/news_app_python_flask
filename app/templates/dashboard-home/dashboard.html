@@ -1,0 +1,100 @@
+﻿{% extends "layout-dash.html" %}
+{% block body%}
+
+<div class="app-content content">
+    <div class="content-wrapper">
+        <div class="content-header row">
+        </div>
+        <div class="content-body">
+            <div id="crypto-stats-3" class="row">
+                <div class="col-xl-4 col-12">
+                    <div class="card crypto-card-3 pull-up">
+                        <div class="card-content">
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h1><i class="" title="BTC"></i></h1>
+                                    </div>
+                                    <div class="col-5 pl-2">
+                                        <h4>Total Posts</h4>
+                                        <h6 class="text-muted">Posts</h6>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <h6 class="success darken-4">10 <i class="la la-arrow-up"></i></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <canvas id="btc-chartjs" class="height-75"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-12">
+                    <div class="card crypto-card-3 pull-up">
+                        <div class="card-content">
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h1><i class="" title="ETH"></i></h1>
+                                    </div>
+                                    <div class="col-5 pl-2">
+                                        <h4>Users</h4>
+                                        <h6 class="text-muted">Users</h6>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <h4>1</h4>
+                                        <h6 class="success darken-4">1 <i class="la la-arrow-up"></i></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <canvas id="eth-chartjs" class="height-75"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-12">
+                    <div class="card crypto-card-3 pull-up">
+                        <div class="card-content">
+                            <div class="card-body pb-0">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <h1><i class="" title="XRP"></i></h1>
+                                    </div>
+                                    <div class="col-5 pl-2">
+                                        <h4>Admins</h4>
+                                        <h6 class="text-muted">Admins</h6>
+                                    </div>
+                                    <div class="col-5 text-right">
+                                        <h4>1</h4>
+                                        <h6 class="danger">1 <i class="la la-arrow-down"></i></h6>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <canvas id="xrp-chartjs" class="height-75"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Candlestick Multi Level Control Chart -->
+                <h1 class="text-center">Welcome To Dashbord</h1>
+<!-- ////////////////////////////////////////////////////////////////////////////-->
+<footer class="footer footer-static footer-light navbar-border navbar-shadow">
+    <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+      <span class="float-md-left d-block d-md-inline-block">Copyright &copy;  <a class="text-bold-800 grey darken-2" href="#"
+        target="_blank">Khaled Sayed </a>, All rights reserved. </span>
+        <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block"> done <i class="ft-heart pink"></i></span>
+    </p>
+</footer>
+
+
+{%endblock%}

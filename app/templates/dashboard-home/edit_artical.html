@@ -1,0 +1,53 @@
+{% extends "layout-dash.html" %}
+{% block body%}
+<div class="container">
+    <div class="category">
+        <h1 class="text-center">تعديل المقال</h1>
+        <div class="card text-center">
+            <form action="{{url_for('dash.edit_artical',id=post.id)}}" method="POST" enctype="multipart/form-data">
+                <div class="form-group text-center">
+                    {{form.csrf_token}}
+                    <div class="form-group">
+                        <input type="hidden" name="username" value="{{session['username']}}">
+                    </div>
+                    <div class="form-group">
+                        <input type="hidden" name="id" value="{{post.id}}">
+                    </div>
+                    <div class="form-group">
+                        {{form.title.label(style='display:block;font-size:2rem;')}}
+                        {{form.title(class='form-control',value=post.title)}}
+                    </div>
+                    <div class="form-group">
+                        {{form.body.label(style='display:block;font-size:2rem;')}}
+                        {{form.body(class='form-control',style='height:300px')}}
+                    </div>
+                    <div class="form-group">
+                        <label for="img" style='display:block;font-size:2rem;'>صورة المقال</label>
+                        <input type="file" name="img" class="form-control">
+                        <!-- {{form.img.label(style='display:block;font-size:2rem;')}}
+                        {{form.img(class='form-control')}} -->
+                    </div>
+                    <div class="form-group">
+                        {{form.category.label(style='display:block;font-size:2rem;')}}
+                        {{form.category(class='form-control')}}
+                    </div>
+                    <div class="form-group">
+                        {{form.submit(class='btn btn-primary',value='تعديل المقال')}}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .category{
+    margin: 45px 0;
+    padding: 15px 0;
+    }
+    .category .card {
+        padding: 20px;
+    }
+</style>
+{%endblock%}
